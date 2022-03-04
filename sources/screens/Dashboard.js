@@ -1,14 +1,61 @@
-import { Text, View, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, View, TouchableOpacity, Image, ScrollView, FlatList } from 'react-native'
 import React, { Component } from 'react'
 import { DrawerActions } from '@react-navigation/native';
 import SurveyTextInput from '../reuseable/SurveyTextInput';
 import DashboadSurvey from './DashboadSurvey';
+import stocks from '../assests/StocksArray/Stocks'
+import DataTable, { COL_TYPES } from 'react-native-datatable-component';
+
 
 
 export default class Dashboard extends Component {
+
+
+
+
+
+
+
+    //renderMethod
+    renderItem = (item) => {
+
+        return (
+
+            <View style={{ backgroundColor: '#F4F8FF', borderRadius: 10, margin: 10 }}>
+                <DataTable
+                    data={stocks} // list of objects
+                    colNames={['CompanyName', 'MarketCap', 'YTDGains', 'StockPrice', 'WeekpriceRange',
+                        'LiveStockPrice', 'FIELD', 'randomstocks', 'stockpercentgrowth']} //List of Strings
+                    colSettings={[{ name: 'CompanyName', type: COL_TYPES.STRING },
+                    { name: 'MarketCap', type: COL_TYPES.STRING },
+                    { name: 'YTDGains', type: COL_TYPES.INT },
+                    { name: 'StockPrice', type: COL_TYPES.INT },
+                    { name: 'WeekpriceRange', type: COL_TYPES.INT },
+                    { name: 'LiveStockPrice', type: COL_TYPES.INT },
+                    { name: 'FIELD', type: COL_TYPES.STRING },
+                    { name: 'randomstocks', type: COL_TYPES.STRING },
+                    { name: 'stockpercentgrowth', type: COL_TYPES.STRING },
+                    ]}//List of Objects
+                    noOfPages={2} //number
+                    backgroundColor={'rgba(23,2,4,0.2)'} //Table Background Color
+                />
+
+            </View>
+
+        );
+    }
+
+
+
+
+
+
+
+
+
     render() {
         return (
-            <ScrollView style={{ flex: 1,backgroundColor: '#E5E5E5' }}>
+            <ScrollView style={{ flex: 1, backgroundColor: '#E5E5E5' }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 23, margin: 10 }}>
                     <Image resizeMode='contain' style={{ width: 90, height: 60 }} source={require('../assests/Images/Logo.png')} />
                     <TouchableOpacity onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
@@ -109,15 +156,21 @@ export default class Dashboard extends Component {
                     </View>
 
                 </View>
-
+                
                 <View>
                     <DashboadSurvey />
                 </View>
 
 
-
-
-
+                <View>
+                    {/*FlatList*/}
+                    <FlatList
+                        contentContainerStyle={{ flexGrow: 1 }}
+                        keyExtractor={(item, index) => index}
+                        data={stocks}
+                        renderItem={({ item }) => this.renderItem(item)}
+                    />
+                </View>
 
 
             </ScrollView>
