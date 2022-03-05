@@ -53,7 +53,6 @@ export default class Libirary extends Component {
         </View>
 
         <View>
-          {/*FlatList*/}
           <FlatList
             contentContainerStyle={{ flexGrow: 1 }}
             showsVerticalScrollIndicator={false}

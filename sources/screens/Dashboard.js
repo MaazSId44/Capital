@@ -1,10 +1,20 @@
-import { Text, View, TouchableOpacity, Image, ScrollView, FlatList } from 'react-native'
+import { Text, View, TouchableOpacity, Image, ScrollView, FlatList, Dimensions } from 'react-native'
 import React, { Component } from 'react'
 import { DrawerActions } from '@react-navigation/native';
 import SurveyTextInput from '../reuseable/SurveyTextInput';
 import DashboadSurvey from './DashboadSurvey';
 import stocks from '../assests/StocksArray/Stocks'
 import DataTable, { COL_TYPES } from 'react-native-datatable-component';
+
+
+import {
+    LineChart,
+    BarChart,
+    PieChart,
+    ProgressChart,
+    ContributionGraph,
+    StackedBarChart
+} from "react-native-chart-kit";
 
 
 
@@ -51,7 +61,14 @@ export default class Dashboard extends Component {
 
 
 
-
+    data = {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [
+            {
+                data: [20, 45, 28, 80, 99, 43]
+            }
+        ]
+    };
 
     render() {
         return (
@@ -156,14 +173,12 @@ export default class Dashboard extends Component {
                     </View>
 
                 </View>
-                
+
                 <View>
                     <DashboadSurvey />
                 </View>
 
-
                 <View>
-                    {/*FlatList*/}
                     <FlatList
                         contentContainerStyle={{ flexGrow: 1 }}
                         keyExtractor={(item, index) => index}
@@ -171,6 +186,68 @@ export default class Dashboard extends Component {
                         renderItem={({ item }) => this.renderItem(item)}
                     />
                 </View>
+
+
+                <View style={{ margin: 10 }}>
+                    <Text style={{ color: '#1A1A1A', fontSize: 14, fontFamily: 'Open Sans', fontWeight: 'bold', margin: 10 }}>Comissions</Text>
+                    <BarChart
+                        data={{
+                            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            datasets: [
+                                {
+                                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                                    colors: [
+                                        () => "blue"
+                                    ]
+                                }]
+                        }}
+
+                        width={340} // from react-native
+                        height={200}
+                        yAxisSuffix="k"
+                        yAxisInterval={1} // optional, defaults to 1
+                        chartConfig={{
+                            backgroundColor: '#F4F8FF',
+                            backgroundGradientFrom: '#F4F8FF',
+                            backgroundGradientTo: '#F4F8FF',
+                            fillShadowGradient: '#51CBFF',
+                            fillShadowGradientOpacity: 15,
+                            spacingInner={ 0.8}
+                            decimalPlaces: 0,
+
+                            color: (opacity = 1) => `rgba(0, 0, 1, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(0, 0, 1,  ${opacity})`,
+                            style: {
+                                borderRadius: 16,
+                                fontFamily: "Bogle-Regular",
+                            },
+                            propsForBackgroundLines: {
+                                stroke: "#F4F8FF",
+                                strokeDasharray: "0",
+                            },
+                            propsForLabels: {
+                                fontFamily: "Bogle-Regular",
+
+                            },
+
+                        }}
+
+                        style={{
+
+                            marginVertical: 8,
+                            borderRadius: 10,
+                        }}
+
+                        showBarTops={false}
+
+                    />
+                </View>
+
+
+
+
+
+
 
 
             </ScrollView>
