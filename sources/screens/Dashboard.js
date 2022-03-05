@@ -206,13 +206,14 @@ export default class Dashboard extends Component {
                         height={200}
                         yAxisSuffix="k"
                         yAxisInterval={1} // optional, defaults to 1
+                        spacingInner={0.8}
+
                         chartConfig={{
                             backgroundColor: '#F4F8FF',
                             backgroundGradientFrom: '#F4F8FF',
                             backgroundGradientTo: '#F4F8FF',
                             fillShadowGradient: '#51CBFF',
                             fillShadowGradientOpacity: 15,
-                            spacingInner={ 0.8}
                             decimalPlaces: 0,
 
                             color: (opacity = 1) => `rgba(0, 0, 1, ${opacity})`,
