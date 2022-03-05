@@ -28,11 +28,12 @@ export default class Dashboard extends Component {
 
     //renderMethod
     renderItem = (item) => {
-
+        const verticalContentInset = { top: 10, bottom: 10 }
         return (
 
             <View style={{ backgroundColor: '#F4F8FF', borderRadius: 10, margin: 10 }}>
-                <DataTable
+                {/* <DataTable
+                    
                     data={stocks} // list of objects
                     colNames={['CompanyName', 'MarketCap', 'YTDGains', 'StockPrice', 'WeekpriceRange',
                         'LiveStockPrice', 'FIELD', 'randomstocks', 'stockpercentgrowth']} //List of Strings
@@ -46,9 +47,11 @@ export default class Dashboard extends Component {
                     { name: 'randomstocks', type: COL_TYPES.STRING },
                     { name: 'stockpercentgrowth', type: COL_TYPES.STRING },
                     ]}//List of Objects
-                    noOfPages={2} //number
-                    backgroundColor={'rgba(23,2,4,0.2)'} //Table Background Color
-                />
+                    noOfPages={10} //number
+                    doSort={false}
+
+                    backgroundColor={'#F4F8FF'} //Table Background Color
+                /> */}
 
             </View>
 
@@ -173,7 +176,8 @@ export default class Dashboard extends Component {
                     <DashboadSurvey />
                 </View>
 
-                <View>
+                <View style={{ marginHorizontal:25,marginVertical:10 }}>
+                <Text style={{ color: '#1A1A1A', fontSize: 14, fontWeight: "bold", fontFamily: 'Open Sans', }}>Stocks</Text>
                     <FlatList
                         contentContainerStyle={{ flexGrow: 1 }}
                         keyExtractor={(item, index) => index}
@@ -183,9 +187,10 @@ export default class Dashboard extends Component {
                 </View>
 
 
-                <View style={{ margin: 10 }}>
-                    <Text style={{ color: '#1A1A1A', fontSize: 14, fontFamily: 'Open Sans', fontWeight: 'bold', margin: 10 }}>Comissions</Text>
+                {/* <View style={{ marginHorizontal:20}}>
+                    <Text style={{ color: '#1A1A1A', fontSize: 14, fontFamily: 'Open Sans', fontWeight: '700', margin: 10 }}>A Total Comissions</Text>
                     <BarChart
+                    
                         data={{
                             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                             datasets: [
@@ -197,49 +202,158 @@ export default class Dashboard extends Component {
                                 }]
                         }}
 
-                        width={340} // from react-native
+                        width={350} // from react-native
                         height={200}
                         yAxisSuffix="k"
                         yAxisInterval={1} // optional, defaults to 1
-                        spacingInner={0.8}
-
-                        chartConfig={{
-                            backgroundColor: '#F4F8FF',
-                            backgroundGradientFrom: '#F4F8FF',
-                            backgroundGradientTo: '#F4F8FF',
-                            fillShadowGradient: '#51CBFF',
-                            fillShadowGradientOpacity: 15,
-                            decimalPlaces: 0,
-
-                            color: (opacity = 1) => `rgba(0, 0, 1, ${opacity})`,
-                            labelColor: (opacity = 1) => `rgba(0, 0, 1,  ${opacity})`,
+                        spacingInner={1}
+                        withInnerLines={false}
+                        
+                        style={{ }}
+                        chartConfig ={ {
+                            backgroundGradientFrom: "#F4F8FF",
+                            backgroundGradientTo: "#F4F8FF",
+                            barPercentage: 0.5,
+                            
+                            height:5000,
+                            fillShadowGradient: `rgba(81, 203, 255, 1)`,
+                            fillShadowGradientOpacity: 1,
+                            decimalPlaces: 0, // optional, defaults to 2dp
+                            color: (opacity = 1) => `rgba(1, 122, 205, 1)`,
+                            labelColor: (opacity = 1) => `rgba(0, 0, 0, 1)`,
+                          
                             style: {
-                                borderRadius: 16,
-                                fontFamily: "Bogle-Regular",
+                                
+                              borderRadius: 16,
+                              fontFamily: "Bogle-Regular",
                             },
-                            propsForBackgroundLines: {
-                                stroke: "#F4F8FF",
-                                strokeDasharray: "0",
-                            },
+                            // propsForBackgroundLines: {
+                            //   strokeWidth: 1,
+                            //   stroke: "black",
+                            //   strokeDasharray: "0",
+                            // },
                             propsForLabels: {
-                                fontFamily: "Bogle-Regular",
-
+                              fontFamily: "Bogle-Regular",
                             },
+                            propsForHorizontalLabels:{
+                                
+                            }
+                          }}
+                        //   style={{  }}
+                        // chartConfig={{
+                        //     backgroundColor: '#fff',
+                        //     backgroundGradientFrom: '#F4F8FF',
+                        //     backgroundGradientTo: '#F4F8FF',
+                        //     fillShadowGradient: `rgba(1, 122, 205, 1)`,
+                        //     fillShadowGradientOpacity: 1,
+                        //     decimalPlaces: 0,
+                        //     barPercentage: 0.5,
 
-                        }}
+                        //     color: (opacity = 1) => `rgba(0, 0, 1, ${opacity})`,
+                        //     labelColor: (opacity = 1) => `rgba(0, 0, 1,  ${opacity})`,
+                        //     style: {
+                        //         borderRadius: 16,
+                        //         fontFamily: "Bogle-Regular",
+                        //     },
+                        //     propsForBackgroundLines: {
+                        //         stroke: "#F4F8FF",
+                        //         strokeDasharray: "0",
+                        //     },
+                        //     propsForLabels: {
+                        //         fontFamily: "Bogle-Regular",
 
-                        style={{
+                        //     },
 
-                            marginVertical: 8,
-                            borderRadius: 10,
-                        }}
+                        // }}
+
+                        // style={{
+
+                        //     marginVertical: 8,
+                        //     borderRadius: 10,
+                        // }}
 
                         showBarTops={false}
 
                     />
-                </View>
+                </View> */}
+                            <View style={{ flex:1,marginHorizontal:20,marginVertical:15 , }}>
+                            <Text style={{ color: '#1A1A1A', fontSize: 14, fontFamily: 'Open Sans', fontWeight: '700', margin: 10 }}>A Total Comissions</Text>
+                          <View style={{backgroundColor:'#F4F8FF' }}>
+                         
+                          <View style={{ flexDirection:'row',height:159,width:350,backgroundColor:'#F4F8FF' ,borderRadius: 6.51125,justifyContent:'space-between',}}>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between', marginHorizontal:10,marginVertical:22}}>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}>1k</Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}></Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}>2k</Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}></Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}>3.58k</Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}></Text>
+                              <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}>4k</Text>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Jan</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:40,width:17,marginTop:95 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Feb</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:65,width:17,marginTop:70 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Mar</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:48,width:17,marginTop:87 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Apr</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:70,width:17,marginTop:65 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>May</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:20,width:17,marginTop:115 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Jun</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:64,width:17,marginTop:71 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Jul</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:51,width:17,marginTop:83 }}></View>
+                          </View> 
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Aug</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:37,width:17,marginTop:97 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Sep</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:20,width:17,marginTop:115 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Oct</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:38,width:17,marginTop:97 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Nov</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:60,width:17,marginTop:75 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:10 ,fontWeight:'400',color:'#373737'}}>Dec</Text>
+                          <View style={{ backgroundColor:'#51CBFF',height:73,width:17,marginTop:61 }}></View>
+                          </View>
+                          <View style={{ flexDirection:'column-reverse',justifyContent:'space-between'}}>
+                         
+                          <View style={{ backgroundColor:'#F4F8FF',height:73,width:8,marginTop:61 }}></View>
+                          </View>
 
 
+
+                          </View>
+                          <View style={{ alignItems:'center',backgroundColor:'#F4F8FF' }}>
+                          <View style={{ height:1,backgroundColor: '#CBCBCB',width:320,marginHorizontal:15 ,marginVertical:6}}></View>
+                          
+                          <Text style={{ fontFamily:'Open Sans',fontSize:14 ,fontWeight:'600',color:'#9E9D9D'}}>Total Comissions</Text>
+                          <Text style={{ fontFamily:'Open Sans',fontSize:18 ,fontWeight:'700',color:'#1A1A1A'}}>$3,000</Text>
+                          </View>
+                          </View>
+                          </View>
 
 
 
