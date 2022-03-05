@@ -56,11 +56,6 @@ export default class Dashboard extends Component {
     }
 
 
-
-
-
-
-
     data = {
         labels: ["January", "February", "March", "April", "May", "June"],
         datasets: [
