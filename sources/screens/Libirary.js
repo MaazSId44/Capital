@@ -11,10 +11,11 @@ export default class Libirary extends Component {
   //renderMethod
   renderItem = (item) => {
     return (
-      <View style={{ margin: 4, backgroundColor: '#E5E5E5', margin: 5, }}>
+    
+      <View style={{ margin: 4, backgroundColor: '#E5E5E5',}}>
 
-        <Image style={{ width: 167, height: 127, marginTop: 10, }} source={item.image} />
-        <View style={{ backgroundColor: '#F4F8FF', width: 167, justifyContent: 'center' }}>
+        <Image style={{ width: 167, height: 127,  }} source={item.image} />
+        <View style={{ backgroundColor: '#F4F8FF',  justifyContent: 'center' }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={{ color: 'black', padding: 5, fontSize: 9.79472, fontFamily: 'Open Sans', fontWeight: 'bold' }}>{item.Productname}</Text>
             <Text style={{ color: '#6ab567', padding: 5, fontSize: 9.79472, fontFamily: 'Open Sans', }}>{item.cost}</Text>
@@ -24,7 +25,7 @@ export default class Libirary extends Component {
           </View>
 
           <View style={{ justifyContent: 'space-around', alignItems: 'center', color: "#017EFA", }}>
-            <TouchableOpacity style={{ paddingHorizontal: 70, paddingVertical: 5, backgroundColor: '#017EFA', padding: 5, marginBottom: 10 }}>
+            <TouchableOpacity style={{ paddingHorizontal: 70, paddingVertical: 5, backgroundColor: '#017EFA', }}>
               <Text style={{ fontSize: 8.81525, fontFamily: 'Open Sans', fontWeight: 'bold', color: '#FFFFFF' }}>
                 Buy
               </Text>
@@ -48,11 +49,11 @@ export default class Libirary extends Component {
           </TouchableOpacity>
         </View>
 
-        <View style={{ justifyContent: 'space-between', margin: 10 }}>
+        <View style={{ justifyContent: 'space-between', marginHorizontal:25,marginVertical:5}}>
           <Text style={{ color: '#1A1A1A', fontSize: 14, fontWeight: "bold", fontFamily: 'Open Sans', }}>Library</Text>
         </View>
 
-        <View>
+        <View style={{ flex:1,marginHorizontal:20 }}>
           <FlatList
             contentContainerStyle={{ flexGrow: 1 }}
             showsVerticalScrollIndicator={false}

@@ -28,33 +28,108 @@ export default class Dashboard extends Component {
 
     //renderMethod
     renderItem = (item) => {
-        const verticalContentInset = { top: 10, bottom: 10 }
+        
         return (
 
-            <View style={{ backgroundColor: '#F4F8FF', borderRadius: 10, margin: 10 }}>
-                {/* <DataTable
+            // <ScrollView style={{ backgroundColor: '#F4F8FF', borderRadius: 10, margin: 10 }}>
+               
+            //     <Text style={{ color:'black' }}>{item.CompanyName}</Text>
+                
+
+            //     {/* <DataTable
                     
-                    data={stocks} // list of objects
-                    colNames={['CompanyName', 'MarketCap', 'YTDGains', 'StockPrice', 'WeekpriceRange',
-                        'LiveStockPrice', 'FIELD', 'randomstocks', 'stockpercentgrowth']} //List of Strings
-                    colSettings={[{ name: 'CompanyName', type: COL_TYPES.STRING },
-                    { name: 'MarketCap', type: COL_TYPES.STRING },
-                    { name: 'YTDGains', type: COL_TYPES.INT },
-                    { name: 'StockPrice', type: COL_TYPES.INT },
-                    { name: 'WeekpriceRange', type: COL_TYPES.INT },
-                    { name: 'LiveStockPrice', type: COL_TYPES.INT },
-                    { name: 'FIELD', type: COL_TYPES.STRING },
-                    { name: 'randomstocks', type: COL_TYPES.STRING },
-                    { name: 'stockpercentgrowth', type: COL_TYPES.STRING },
-                    ]}//List of Objects
-                    noOfPages={10} //number
-                    doSort={false}
+            //         data={stocks} // list of objects
+            //         colNames={['CompanyName', 'MarketCap', 'YTDGains', 'StockPrice', 'WeekpriceRange',
+            //             'LiveStockPrice', 'FIELD', 'randomstocks', 'stockpercentgrowth']} //List of Strings
+            //         colSettings={[{ name: 'CompanyName', type: COL_TYPES.STRING },
+            //         { name: 'MarketCap', type: COL_TYPES.STRING },
+            //         { name: 'YTDGains', type: COL_TYPES.INT },
+            //         { name: 'StockPrice', type: COL_TYPES.INT },
+            //         { name: 'WeekpriceRange', type: COL_TYPES.INT },
+            //         { name: 'LiveStockPrice', type: COL_TYPES.INT },
+            //         { name: 'FIELD', type: COL_TYPES.STRING },
+            //         { name: 'randomstocks', type: COL_TYPES.STRING },
+            //         { name: 'stockpercentgrowth', type: COL_TYPES.STRING },
+            //         ]}//List of Objects
+            //         noOfPages={10} //number
+            //         doSort={false}
 
-                    backgroundColor={'#F4F8FF'} //Table Background Color
-                /> */}
+            //         backgroundColor={'#F4F8FF'} //Table Background Color
+            //     /> */}
+            //     {/* <Text style={{ color:'black' }}>
+            //         {item.CompanyName}
+            //     </Text>
+            //     <Text style={{ color:'black' }}>
+            //         {item.MarketCap}
+            //     </Text> */}
 
+
+            // </ScrollView>
+
+
+        //     <ScrollView
+        //     horizontal
+        //     bounces={false}
+        // >
+        //     <ScrollView
+        //         nestedScrollEnabled
+        //         bounces={false}
+        //         // You will need to figure out the height of inner content yourself
+        //         // contentContainerStyle={{ height: 400 }}
+        //     >
+        //         <View>
+        //         <Text style={{ color:'black' }}>{item.CompanyName}</Text>
+                        
+        //         </View>
+        //     </ScrollView>
+        // </ScrollView>
+        <ScrollView
+                nestedScrollEnabled
+                bounces={false}>
+             {/* <ScrollView horizontal style={{flexDirection:'row',backgroundColor:'#F4F8FF',borderRadius: 6.51125,width:400 }}>
+            <View style={{ flexDirection:'column',marginHorizontal:10 }}>
+            <Text style={{color:'black'  }}>
+                {item.CompanyName}
+            </Text>
             </View>
-
+            <View style={{ flexDirection:'column' ,marginHorizontal:10}}>
+            <Text style={{color:'black'  }}>
+                {item.MarketCap}
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:10}}>
+            <Text style={{color:'black'  }}>
+                {item.YTDGains}
+            </Text>
+            
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:10}}>
+            <Text style={{color:'black'  }}>
+                {item.StockPrice}
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:10}}>
+            <Text style={{color:'black'  }}>
+                {item.WeekpriceRange}
+            </Text>
+            
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:10}}>
+            <Text style={{color:'black'  }}>
+                -
+            </Text>
+            
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                Total
+            </Text>
+            <Text style={{color:'black'  }}>
+            Investment
+            </Text>
+            </View>
+            </ScrollView> */}
+        </ScrollView>
         );
     }
 
@@ -67,8 +142,10 @@ export default class Dashboard extends Component {
             }
         ]
     };
-
+     
+    
     render() {
+        
         return (
             <ScrollView style={{ flex: 1, backgroundColor: '#E5E5E5' }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 23, margin: 10 }}>
@@ -79,7 +156,7 @@ export default class Dashboard extends Component {
                 </View>
 
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', margin: 10, marginTop: 66 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', margin: 10, marginTop: 40 }}>
 
                     <View>
                         <Text style={{ color: '#1A1A1A', fontSize: 14, fontWeight: "bold", fontFamily: 'Open Sans', }}>Import Contacts</Text>
@@ -176,9 +253,78 @@ export default class Dashboard extends Component {
                     <DashboadSurvey />
                 </View>
 
-                <View style={{ marginHorizontal:25,marginVertical:10 }}>
+                <View style={{ flex:1,marginHorizontal:25,marginVertical:10 }}>
                 <Text style={{ color: '#1A1A1A', fontSize: 14, fontWeight: "bold", fontFamily: 'Open Sans', }}>Stocks</Text>
+                <ScrollView horizontal style={{flexDirection:'row',backgroundColor:'#F4F8FF',borderRadius: 6.51125,marginVertical:10,width:340 }}>
+            <View style={{ flexDirection:'column',marginHorizontal:20 }}>
+            <Text style={{color:'black'  }}>
+                Compan
+            </Text>
+            <Text style={{color:'black'  }}>
+                Name
+            </Text>
+            <Text style={{color:'black'  }}>
+              (Ticker)
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column' ,marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                Market
+            </Text>
+            <Text style={{color:'black'  }}>
+            Cap
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                %YTD
+            </Text>
+            <Text style={{color:'black'  }}>
+            Gains
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                Stock
+            </Text>
+            <Text style={{color:'black'  }}>
+            Price
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                52 Weaks
+            </Text>
+            <Text style={{color:'black'  }}>
+            Price
+            </Text>
+            <Text style={{color:'black'  }}>
+            Range
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                My
+            </Text>
+            <Text style={{color:'black'  }}>
+            Investment
+            </Text>
+            <Text style={{color:'black'  }}>
+            (% or $)
+            </Text>
+            </View>
+            <View style={{ flexDirection:'column',marginHorizontal:20}}>
+            <Text style={{color:'black'  }}>
+                Total
+            </Text>
+            <Text style={{color:'black'  }}>
+            Investment
+            </Text>
+            </View>
+            </ScrollView>
                     <FlatList
+                    style={{ width:320,height:100, }}
+                    scrollEnabled
                         contentContainerStyle={{ flexGrow: 1 }}
                         keyExtractor={(item, index) => index}
                         data={stocks}
@@ -278,9 +424,9 @@ export default class Dashboard extends Component {
                 </View> */}
                             <View style={{ flex:1,marginHorizontal:20,marginVertical:15 , }}>
                             <Text style={{ color: '#1A1A1A', fontSize: 14, fontFamily: 'Open Sans', fontWeight: '700', margin: 10 }}>A Total Comissions</Text>
-                          <View style={{backgroundColor:'#F4F8FF' }}>
+                          <View style={{backgroundColor:'#F4F8FF',borderRadius: 6.51125, }}>
                          
-                          <View style={{ flexDirection:'row',height:159,width:350,backgroundColor:'#F4F8FF' ,borderRadius: 6.51125,justifyContent:'space-between',}}>
+                          <View style={{ flexDirection:'row',height:159,width:340,backgroundColor:'#F4F8FF' ,borderRadius: 6.51125,justifyContent:'space-between',}}>
                           <View style={{ flexDirection:'column-reverse',justifyContent:'space-between', marginHorizontal:10,marginVertical:22}}>
                               <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}>1k</Text>
                               <Text style={{ fontFamily:'Open Sans',fontSize:12 ,fontWeight:'400',color:'#373737'}}></Text>

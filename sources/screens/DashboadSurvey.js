@@ -1,6 +1,7 @@
 import { Text, View,TouchableOpacity  } from 'react-native'
 import React, { Component} from 'react';
 import TextInputs from '../reuseable/SurveyTextInput'
+import { Dimensions } from 'react-native';
 
 export default class DashboadSurvey extends Component {
     constructor() {
@@ -15,11 +16,12 @@ export default class DashboadSurvey extends Component {
         }
     }
     render() {
+        const windowWidth = Dimensions.get('window').width;
         return (
             <View style={{ flex: 1, }}>
-                <View style={{ margin: 15 }}>
+                <View style={{ marginHorizontal: 25 }}>
                     <Text style={{ color: '#1A1A1A', fontSize: 14, fontWeight: "bold", fontFamily: 'Open Sans', }}>Survey</Text>
-                    <View style={{ backgroundColor: '#F4F8FF', borderRadius: 6.51125, marginTop: 15, width: 330 }}>
+                    <View style={{ backgroundColor: '#F4F8FF', borderRadius: 6.51125, marginTop: 15, width: 345 }}>
                         <Text style={{ color: 'black', marginLeft: 15,marginTop:10 }} >How much money do you have?</Text>
                         <View>
                             <TextInputs
@@ -56,7 +58,7 @@ export default class DashboadSurvey extends Component {
                         <View style={{ justifyContent: 'center', alignItems: 'center', color: "#017EFA", margin: 10 }}>
                             <TouchableOpacity style={{ paddingHorizontal: 30, paddingVertical: 8, backgroundColor: '#017EFA', borderRadius: 6.51125, margin: 10 }}>
                                 <Text>
-                                    Submt 
+                                    Submit 
                                 </Text>
                             </TouchableOpacity>
                         </View>
